@@ -9,7 +9,7 @@ package gindemo
 
 import (
 	// API控制器
-	_ "github.com/LyricTian/gin-admin/internal/app/ginadmin/routers/api/ctl"
+	_ "github.com/yph152/api-frame-for-gin/internal/app/gindemo/routers/apis/ctl"
 )
 
 // @Version 3.1.1

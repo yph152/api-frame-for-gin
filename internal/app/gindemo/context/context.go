@@ -5,6 +5,7 @@ import (
 )
 
 type (
+	transCtx   struct{}
 	tracesCtx  struct{}
 	userIDCtx  struct{}
 	traceIDCtx struct{}
@@ -16,7 +17,7 @@ func NewTrans(ctx context.Context, trans interface{}) context.Context {
 }
 
 // FromTrans 从上下文中获取事务
-func Fromtrans(ctx context.Context) (interface{}, bool) {
+func FromTrans(ctx context.Context) (interface{}, bool) {
 	v := ctx.Value(transCtx{})
 	return v, v != nil
 }

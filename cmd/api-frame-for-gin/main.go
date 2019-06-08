@@ -11,11 +11,14 @@ import (
 func main() {
 	var stopCh <-chan int
 
+	// 初始化命令行参数
 	s := options.NewServerRunOptions()
 	s.AddFlags(pflag.CommandLine)
 
 	pflag.Parse()
 	defer glog.Flush()
+
+	// 启动服务
 	if err := app.Run(s, stopCh); err != nil {
 		glog.Error("app exit...")
 	}

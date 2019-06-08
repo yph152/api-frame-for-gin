@@ -2,24 +2,56 @@
 
 
 [[projects]]
-  digest = "1:36fe9527deed01d2a317617e59304eb2c4ce9f8a24115bcc5c2e37b3aee5bae4"
+  digest = "1:9f3b30d9f8e0d7040f729b82dcbc8f0dead820a133b3147ce355fc451f32d761"
+  name = "github.com/BurntSushi/toml"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005"
+  version = "v0.3.1"
+
+[[projects]]
+  digest = "1:4435c209a423c836d926663b03bbe0c145aa7c3a74d71df591476ab09bbc6ea6"
+  name = "github.com/LyricTian/queue"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ebc59e710632bf5c7de2444ac4efbd6c8effdd46"
+  version = "v1.1.0"
+
+[[projects]]
+  digest = "1:cc93dd54278f6c0dd4b43588b3cf2c07b09b2a6dd4e2617edf81aa8946054c1e"
+  name = "github.com/gin-contrib/cors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "5f50d4fb4e0306dcacc6f8e9bea2dcee784dbbdf"
+  version = "v1.3.0"
+
+[[projects]]
+  digest = "1:a4b5a6b32f33323c7850fae4ec085a0fbac3be93c057b6b8cef5bcabe24645ac"
   name = "github.com/gin-contrib/sse"
   packages = ["."]
   pruneopts = "UT"
-  revision = "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae"
+  revision = "5545eab6dad3bbbd6c5ae9186383c2a9d23c0dae"
 
 [[projects]]
-  digest = "1:d5083934eb25e45d17f72ffa86cae3814f4a9d6c073c4f16b64147169b245606"
+  digest = "1:d8bd2a337f6ff2188e08f72c614f2f3f0fd48e6a7b37a071b197e427d77d3a47"
   name = "github.com/gin-gonic/gin"
   packages = [
     ".",
     "binding",
-    "json",
+    "internal/json",
     "render",
   ]
   pruneopts = "UT"
-  revision = "b869fe1415e4b9eb52f247441830d502aece2d4d"
-  version = "v1.3.0"
+  revision = "b75d67cd51eb53c3c3a2fc406524c940021ffbda"
+  version = "v1.4.0"
+
+[[projects]]
+  digest = "1:ec6f9bf5e274c833c911923c9193867f3f18788c461f76f05f62bb1510e0ae65"
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "72cd26f257d44c1114970e19afddcd812016007e"
+  version = "v1.4.1"
 
 [[projects]]
   branch = "master"
@@ -30,26 +62,110 @@
   revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 
 [[projects]]
-  digest = "1:6ba96a683441984156b05568b9d31dbc846d3336d21ac220fcc819a367dc1f65"
+  digest = "1:318f1c959a8a740366fce4b1e1eb2fd914036b4af58fbd0a003349b305f118ad"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
   pruneopts = "UT"
-  revision = "5a0f697c9ed9d68fef0116532c6e05cfeae00e55"
+  revision = "c823c79ea1570fb5ff454033735a8e68575d1d0f"
+  version = "v1.3.0"
 
 [[projects]]
-  digest = "1:be97e109f627d3ba8edfef50c9c74f0d0c17cbe3a2e924a8985e4804a894f282"
+  digest = "1:25697b37829fe0afed1e94c5b2e1c7645ac234c7d79ffa4534022e0899f63eec"
+  name = "github.com/jinzhu/gorm"
+  packages = [
+    ".",
+    "dialects/mysql",
+    "dialects/postgres",
+    "dialects/sqlite",
+  ]
+  pruneopts = "UT"
+  revision = "b7156195f7f3415f97c20abbd6aff894b847fee8"
+  version = "v1.9.8"
+
+[[projects]]
+  branch = "master"
+  digest = "1:01ed62f8f4f574d8aff1d88caee113700a2b44c42351943fa73cc1808f736a50"
+  name = "github.com/jinzhu/inflection"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f5c5f50e6090ae76a29240b61ae2a90dd810112e"
+
+[[projects]]
+  digest = "1:f5a2051c55d05548d2d4fd23d244027b59fbd943217df8aa3b5e170ac2fd6e1b"
   name = "github.com/json-iterator/go"
   packages = ["."]
   pruneopts = "UT"
-  revision = "36b14963da70d11297d313183d7e6388c8510e1e"
-  version = "1.0.0"
+  revision = "0ff49de124c6f76f8494e194af75bde0f1a49a29"
+  version = "v1.1.6"
 
 [[projects]]
-  digest = "1:fa610f9fe6a93f4a75e64c83673dfff9bf1a34bbb21e6102021b6bc7850834a3"
+  digest = "1:31e761d97c76151dde79e9d28964a812c46efc5baee4085b86f68f0c654450de"
+  name = "github.com/konsorten/go-windows-terminal-sequences"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e"
+  version = "v1.0.2"
+
+[[projects]]
+  digest = "1:0e06e487551e2f9e0d6967a15c42223354e37c2e9869b301b14a42e4b51ea3e0"
+  name = "github.com/lib/pq"
+  packages = [
+    ".",
+    "hstore",
+    "oid",
+    "scram",
+  ]
+  pruneopts = "UT"
+  revision = "bc6a3c0594130b1e34005880bc600b6d3f49fa7f"
+  version = "v1.1.1"
+
+[[projects]]
+  digest = "1:e150b5fafbd7607e2d638e4e5cf43aa4100124e5593385147b0a74e2733d8b0d"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
   pruneopts = "UT"
-  revision = "57fdcb988a5c543893cc61bce354a6e24ab70022"
+  revision = "c2a7a6ca930a4cd0bc33a3f298eb71960732a3a7"
+  version = "v0.0.7"
+
+[[projects]]
+  digest = "1:4a49346ca45376a2bba679ca0e83bec949d780d4e927931317904bad482943ec"
+  name = "github.com/mattn/go-sqlite3"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "c7c4067b79cc51e6dfdcef5c702e74b1e0fa7c75"
+  version = "v1.10.0"
+
+[[projects]]
+  digest = "1:33422d238f147d247752996a26574ac48dcf472976eda7f5134015f06bf16563"
+  name = "github.com/modern-go/concurrent"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94"
+  version = "1.0.3"
+
+[[projects]]
+  digest = "1:e32bdbdb7c377a07a9a46378290059822efdce5c8d96fe71940d87cb4f918855"
+  name = "github.com/modern-go/reflect2"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "4b7aa43c6742a2c18fdef89dd197aaae7dac7ccd"
+  version = "1.0.1"
+
+[[projects]]
+  digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
+  version = "v0.8.1"
+
+[[projects]]
+  digest = "1:04457f9f6f3ffc5fea48e71d62f2ca256637dee0a04d710288e27e05c8b41976"
+  name = "github.com/sirupsen/logrus"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "839c75faf7f98a33d445d181f3018b5c3409a45e"
+  version = "v1.4.2"
 
 [[projects]]
   digest = "1:c1b1102241e7f645bc8e0c22ae352e8f0dc6484b6cb4d132fa9f24174e0119e2"
@@ -60,41 +176,61 @@
   version = "v1.0.3"
 
 [[projects]]
-  digest = "1:c268acaa4a4d94a467980e5e91452eb61c460145765293dc0aed48e5e9919cc6"
+  digest = "1:d0072748c62defde1ad99dde77f6ffce492a0e5aea9204077e497c7edfb86653"
   name = "github.com/ugorji/go"
   packages = ["codec"]
   pruneopts = "UT"
-  revision = "c88ee250d0221a57af388746f5cf03768c21d6e2"
+  revision = "2adff0894ba3bc2eeb9f9aea45fefd49802e1a13"
+  version = "v1.1.4"
 
 [[projects]]
   branch = "master"
-  digest = "1:3e01c69b34e7c3fa4b7a118ca95a6beaecea00f7f4fb701545d83eacd3badb3c"
+  digest = "1:8f5108406bc43c7669b0d67d282e40d05c9f268615fcaf8c1f0f76965aa3f09f"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "97732733099d6a942a73b889770774366de963ed"
+  revision = "5b15430b70e38eb7f9c844f97c25f25a246d5c63"
 
 [[projects]]
-  digest = "1:1b4724d3c8125f6044925f02b485b74bfec9905cbf579d95aafd1a6c8f8447d3"
+  digest = "1:c25289f43ac4a68d88b02245742347c94f1e108c534dda442188015ff80669b3"
+  name = "google.golang.org/appengine"
+  packages = ["cloudsql"]
+  pruneopts = "UT"
+  revision = "b2f4a3cf3c67576a2ee09e1fe62656a5086ce880"
+  version = "v1.6.1"
+
+[[projects]]
+  digest = "1:cbc72c4c4886a918d6ab4b95e347ffe259846260f99ebdd8a198c2331cf2b2e9"
   name = "gopkg.in/go-playground/validator.v8"
   packages = ["."]
   pruneopts = "UT"
-  revision = "5f57d2222ad794d0dffb07e664ea05e2ee07d60c"
-  version = "v8.18.1"
+  revision = "5f1438d3fca68893a817e4a66806cea46a9e4ebf"
+  version = "v8.18.2"
 
 [[projects]]
-  digest = "1:cacb98d52c60c337c2ce95a7af83ba0313a93ce5e73fa9e99a96aff70776b9d3"
+  digest = "1:4d2e5a73dc1500038e504a8d78b986630e3626dc027bc030ba5c75da257cdb96"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
   pruneopts = "UT"
-  revision = "a5b47d31c556af34a302ce5d659e6fea44d90de0"
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/BurntSushi/toml",
+    "github.com/LyricTian/queue",
+    "github.com/gin-contrib/cors",
     "github.com/gin-gonic/gin",
     "github.com/golang/glog",
+    "github.com/jinzhu/gorm",
+    "github.com/jinzhu/gorm/dialects/mysql",
+    "github.com/jinzhu/gorm/dialects/postgres",
+    "github.com/jinzhu/gorm/dialects/sqlite",
+    "github.com/json-iterator/go",
+    "github.com/pkg/errors",
+    "github.com/sirupsen/logrus",
     "github.com/spf13/pflag",
   ]
   solver-name = "gps-cdcl"
