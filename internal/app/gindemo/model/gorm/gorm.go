@@ -1,8 +1,6 @@
 package gorm
 
 import (
-	"fmt"
-
 	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/model"
 	"github.com/yph152/api-frame-for-gin/pkg/gormplus"
 

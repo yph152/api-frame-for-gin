@@ -43,6 +43,7 @@ type Config struct {
 	RunMode     string      `toml:"run_mode"`
 	Swagger     string      `toml:"swagger"`
 	Log         Log         `toml:"log"`
+	Store       string      `toml:"store"`
 	LogGormHook LogGormHook `toml:"log_gorm_hook"`
 	HTTP        HTTP        `toml:"http"`
 	Monitor     Monitor     `toml:"monitor"`
@@ -50,6 +51,7 @@ type Config struct {
 	Gorm        Gorm        `toml:"gorm"`
 	MySQL       MySQL       `toml:"mysql"`
 	Postgres    Postgres    `toml:"postgres"`
+	Sqlite3     Sqlite3     `toml:"sqlite3"`
 }
 
 // Log 日志配置参数
@@ -134,4 +136,12 @@ type Postgres struct {
 // DSN 数据库连接串
 func (a Postgres) DSN() string {
 	return fmt.Sprintf("host=%s port=%d user=%s dbname=%s password=%s", a.Host, a.Port, a.User, a.DBName, a.Password)
+}
+
+type Sqlite3 struct {
+	Path string `toml:"path"`
+}
+
+func (a Sqlite3) DSN() string {
+	return a.Path
 }

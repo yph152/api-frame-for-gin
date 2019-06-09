@@ -3,6 +3,7 @@ package model
 import (
 	"context"
 
+	"github.com/jinzhu/gorm"
 	icontext "github.com/yph152/api-frame-for-gin/internal/app/gindemo/context"
 	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/schema"
 	"github.com/yph152/api-frame-for-gin/pkg/gormplus"
@@ -29,7 +30,7 @@ func ExecTrans(ctx context.Context, db *gormplus.DB, fn func(context.Context) er
 }
 
 // WrapPageQuery 包装带有分页的查询
-func WrapPageQuery(db *gorm.DB, pp *schema.PaginationParam, out interface{}) (*schema.Paginationresult, error) {
+func WrapPageQuery(db *gorm.DB, pp *schema.PaginationParam, out interface{}) (*schema.PaginationResult, error) {
 	if pp != nil {
 		total, err := gormplus.Wrap(db).FindPage(db, pp.PageIndex, pp.PageSize, out)
 		if err != nil {

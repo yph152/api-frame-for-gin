@@ -3,7 +3,8 @@ package entity
 import (
 	"context"
 	"fmt"
-	"time"
+
+	"github.com/yph152/api-frame-for-gin/pkg/util"
 
 	icontext "github.com/yph152/api-frame-for-gin/internal/app/gindemo/context"
 	"github.com/yph152/api-frame-for-gin/pkg/gormplus"
@@ -38,7 +39,7 @@ func toString(v interface{}) string {
 	return util.JSONMarshalToString(v)
 }
 
-func getDB(ctx context.Context, defDB *gromplus.DB) *gormplus.DB {
+func getDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
 	trans, ok := icontext.FromTrans(ctx)
 	if ok {
 		db, ok := trans.(*gormplus.DB)
@@ -49,6 +50,6 @@ func getDB(ctx context.Context, defDB *gromplus.DB) *gormplus.DB {
 	return defDB
 }
 
-func getDBWithModel(ctx context.Context, defDB *gormplus.DB, m interface{}) *gromplus.DB {
+func getDBWithModel(ctx context.Context, defDB *gormplus.DB, m interface{}) *gormplus.DB {
 	return gormplus.Wrap(getDB(ctx, defDB).Model(m))
 }

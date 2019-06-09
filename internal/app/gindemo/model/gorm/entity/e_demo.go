@@ -8,7 +8,7 @@ import (
 )
 
 // GetDemoDB 获取demo存储
-func GetDemoDB(ctx context.Context, defDB *gromplus.DB) *gormplus.DB {
+func GetDemoDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
 	return getDBWithModel(ctx, defDB, Demo{})
 }
 
@@ -66,7 +66,7 @@ func (a Demo) ToSchemaDemo() *schema.Demo {
 type Demos []*Demo
 
 // ToSchemaDemos 转换为demo对象列表
-func (a Demos) ToSchemaDemos() []*Schema.Demo {
+func (a Demos) ToSchemaDemos() []*schema.Demo {
 	list := make([]*schema.Demo, len(a))
 	for i, item := range a {
 		list[i] = item.ToSchemaDemo()

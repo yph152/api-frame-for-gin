@@ -13,12 +13,12 @@ import (
 )
 
 // @Version 3.1.1
-// @Title GinAdmin
+// @Title GinDemo
 // @Description RBAC scaffolding based on GIN + GORM + CASBIN.
 // @Schemes http,https
 // @Host 127.0.0.1:10088
 // @BasePath /
-// @Name LyricTian
-// @Contact tiannianshou@gmail.com
+// @Name yph152
+// @Contact yph152@gmail.com
 // @Consumes json
 // @Produces json

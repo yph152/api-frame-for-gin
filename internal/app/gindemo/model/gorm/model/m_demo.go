@@ -2,12 +2,14 @@ package model
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/yph152/api-frame-for-gin/pkg/errors"
+	"github.com/yph152/api-frame-for-gin/pkg/gormplus"
 	"github.com/yph152/api-frame-for-gin/pkg/logger"
 
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/model/gorm/entity"
 	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/schema"
-	"github.com/yph152/api-frame-for-gin/pkg/gormplus"
 )
 
 // NewDemo 创建demo存储
@@ -24,7 +26,7 @@ func (a *Demo) getFuncName(name string) string {
 	return fmt.Sprintf("gorm.model.Demo.%s", name)
 }
 
-func (a *Demo) getQueryOption(opts ...schema.DemoQueryOptions) schema.DemoQueryoptions {
+func (a *Demo) getQueryOption(opts ...schema.DemoQueryOptions) schema.DemoQueryOptions {
 	var opt schema.DemoQueryOptions
 	if len(opts) > 0 {
 		opt = opts[0]

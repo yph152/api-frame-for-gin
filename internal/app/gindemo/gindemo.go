@@ -9,7 +9,7 @@ import (
 
 	"github.com/yph152/api-frame-for-gin/cmd/api-frame-for-gin/app/options"
 	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/bll"
-	//"github.com/yph152/api-frame-for-gin/internal/app/gindemo/config"
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/config"
 	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/model"
 	"github.com/yph152/api-frame-for-gin/pkg/logger"
 	"github.com/yph152/api-frame-for-gin/pkg/util"
@@ -55,12 +55,28 @@ func Init(ctx context.Context) func() {
 func InitObject(ctx context.Context) (*Object, func(), error) {
 	obj := &Object{}
 
+	m, storeCall, err := InitStore()
+	if err != nil {
+		return nil, nil, err
+	}
+
+	obj.Model = m
+
+	bllCommon := bll.NewCommon(obj.Model)
+
+	obj.Bll = bllCommon
 	return obj, func() {
+		if storeCall != nil {
+			storeCall()
+		}
 	}, nil
 }
 
 func Server(opt *options.ServerRunOptions) error {
-	//cfg := config.LoadGlobalConfig(opt.Config)
+	err := config.LoadGlobalConfig(opt.Config)
+	if err != nil {
+		return err
+	}
 	//swaggerDir := opt.SwaggerDir
 
 	ctx := logger.NewTraceIDContext(context.Background(), util.MustUUID())

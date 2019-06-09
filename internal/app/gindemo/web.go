@@ -31,6 +31,7 @@ func InitWeb(ctx context.Context, obj *Object) *gin.Engine {
 	//崩溃恢复
 	app.Use(middleware.RecoveryMiddleware())
 
+	app.Static("/swagger", "../../internal/app/gindemo/swagger")
 	cfg := config.GetGlobalConfig()
 	// 跨域请求
 	if cfg.CORS.Enable {
@@ -52,7 +53,7 @@ func InitWeb(ctx context.Context, obj *Object) *gin.Engine {
 func InitHTTPServer(ctx context.Context, handler http.Handler) func() {
 	//var err error
 	cfg := config.GetGlobalConfig().HTTP
-	addr := fmt.Sprintf("%s:%d", cfg.Host, cfg.Port)
+	addr := fmt.Sprintf("%s:%d", "0.0.0.0", 8088)
 	server := &http.Server{
 		Addr:         addr,
 		Handler:      handler,
