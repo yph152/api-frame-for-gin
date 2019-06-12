@@ -4,14 +4,13 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	"strings"
 
-	icontext "github.com/LyricTian/gin-admin/internal/app/ginadmin/context"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/schema"
-	"github.com/LyricTian/gin-admin/pkg/errors"
-	"github.com/LyricTian/gin-admin/pkg/logger"
-	"github.com/LyricTian/gin-admin/pkg/util"
 	"github.com/gin-gonic/gin"
+	icontext "github.com/yph152/api-frame-for-gin/internal/app/gindemo/context"
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/schema"
+	"github.com/yph152/api-frame-for-gin/pkg/errors"
+	"github.com/yph152/api-frame-for-gin/pkg/logger"
+	"github.com/yph152/api-frame-for-gin/pkg/util"
 )
 
 // 定义上下文中的键
@@ -25,6 +24,7 @@ const (
 	ResBodyKey = prefix + "/res_body"
 )
 
+// 获取函数的名字
 func getFuncName(name string) string {
 	return fmt.Sprintf("ginadmin.ginplus.%s", name)
 }
@@ -44,17 +44,6 @@ func NewContext(c *gin.Context) context.Context {
 	}
 
 	return parent
-}
-
-// GetToken 获取用户令牌
-func GetToken(c *gin.Context) string {
-	var token string
-	auth := c.GetHeader("Authorization")
-	prefix := "Bearer "
-	if auth != "" && strings.HasPrefix(auth, prefix) {
-		token = auth[len(prefix):]
-	}
-	return token
 }
 
 // GetPageIndex 获取分页的页索引

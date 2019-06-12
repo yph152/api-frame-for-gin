@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/ginplus"
-	"github.com/LyricTian/gin-admin/pkg/logger"
 	"github.com/gin-gonic/gin"
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/ginplus"
+	"github.com/yph152/api-frame-for-gin/pkg/logger"
 )
 
 // LoggerMiddleware 日志中间件

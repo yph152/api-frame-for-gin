@@ -3,10 +3,10 @@ package gorm
 import (
 	"time"
 
-	"github.com/LyricTian/gin-admin/pkg/logger"
-	"github.com/LyricTian/gin-admin/pkg/util"
 	"github.com/jinzhu/gorm"
 	"github.com/sirupsen/logrus"
+	"github.com/yph152/api-frame-for-gin/pkg/logger"
+	"github.com/yph152/api-frame-for-gin/pkg/util"
 )
 
 var tableName string

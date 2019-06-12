@@ -6,10 +6,10 @@ import (
 	"io/ioutil"
 	"runtime"
 
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/ginplus"
-	"github.com/LyricTian/gin-admin/pkg/errors"
-	"github.com/LyricTian/gin-admin/pkg/logger"
 	"github.com/gin-gonic/gin"
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/ginplus"
+	"github.com/yph152/api-frame-for-gin/pkg/errors"
+	"github.com/yph152/api-frame-for-gin/pkg/logger"
 )
 
 var (

@@ -1,13 +1,16 @@
-package apis
+package gindemo
 
 import (
+	"context"
 	"fmt"
-	"strconv"
+	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/yph152/api-frame-for-gin/cmd/api-frame-for-gin/app/options"
-	"github.com/yph152/api-frame-for-gin/src/apis/v1alpha1/demo"
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/config"
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/middleware"
+	"github.com/yph152/api-frame-for-gin/internal/app/gindemo/routers/apis"
+	"github.com/yph152/api-frame-for-gin/pkg/logger"
 )
 
 func InitWeb(ctx context.Context, obj *Object) *gin.Engine {
@@ -20,38 +23,37 @@ func InitWeb(ctx context.Context, obj *Object) *gin.Engine {
 	apiPrefixes := []string{"/apis/"}
 
 	// 跟踪ID
-	app.Use(middlerware.TraceMiddleware(middleware.AllowPathPrefixNoSkipper(apiPrefixes...)))
+	app.Use(middleware.TraceMiddleware(middleware.AllowPathPrefixNoSkipper(apiPrefixes...)))
 
 	// 访问日志
-	app.Use(middlerware.LoggerMiddleware(middleware.AllowPathPrefixNoSkipper(apiPrefixes...)))
+	app.Use(middleware.LoggerMiddleware(middleware.AllowPathPrefixNoSkipper(apiPrefixes...)))
 
 	//崩溃恢复
 	app.Use(middleware.RecoveryMiddleware())
 
+	app.Static("/swagger", "../../internal/app/gindemo/swagger")
+	cfg := config.GetGlobalConfig()
 	// 跨域请求
 	if cfg.CORS.Enable {
-		app.Use(middleware.CoreMiddleware())
+		app.Use(middleware.CORSMiddleware())
 	}
 
 	// 注册/apis 路由
-	apis.RegisterRouter(app, obj.Bll)
+	apis.RegisterRoute(app, obj.Bll)
 
 	// swagger文档
 	if dir := cfg.Swagger; dir != "" {
 		app.Static("/swagger", dir)
 	}
 
-	//静态站点
-	if dir := cfg.WWW; dir != "" {
-		app.Use(middleware.WWWMiddleware(dir))
-	}
-
 	return app
 }
 
-func InitHTTPServer(ctx context.Context, handler http.Hanler) func() {
+// http 服务初始化
+func InitHTTPServer(ctx context.Context, handler http.Handler) func() {
+	//var err error
 	cfg := config.GetGlobalConfig().HTTP
-	addr := fmt.Sprintf("%s:%d", cfg.Host, cfg.Port)
+	addr := fmt.Sprintf("%s:%d", "0.0.0.0", 8088)
 	server := &http.Server{
 		Addr:         addr,
 		Handler:      handler,
@@ -62,9 +64,9 @@ func InitHTTPServer(ctx context.Context, handler http.Hanler) func() {
 
 	go func() {
 		logger.StartSpan(ctx, "HTTP服务初始化", "gindemo.InitHTTPServer").Printf("HTTP服务开始启动,地址监听在: [%s]", addr)
-		err := server.ListenAndServer()
+		err := server.ListenAndServe()
 		if err != nil && err != http.ErrServerClosed {
-			logger.StartSpan(ctx, time.Second*time.Duration(cfg.ShutdownTimeout))
+			//logger.StartSpan(ctx, "服务初始化失败", time.Second*time.Duration(cfg.ShutdownTimeout))
 		}
 	}()
 
@@ -73,7 +75,7 @@ func InitHTTPServer(ctx context.Context, handler http.Hanler) func() {
 		defer cancel()
 
 		server.SetKeepAlivesEnabled(false)
-		if err != server.Shutdown(ctx); err != nil {
+		if err := server.Shutdown(ctx); err != nil {
 			logger.StartSpan(ctx, "关闭HTTP服务", "gindemo.InitHTTPServer").Errorf(err.Error())
 		}
 	}
